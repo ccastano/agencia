@@ -1,0 +1,5 @@
+com\consultorio\registro\module\TipoPersonaEnum.class
+com\consultorio\registro\service\SaludoRest.class
+com\common\JAXRSConfiguration.class
+com\consultorio\registro\module\Persona.class
+com\consultorio\registro\service\ConsultaPersonaRest.class
