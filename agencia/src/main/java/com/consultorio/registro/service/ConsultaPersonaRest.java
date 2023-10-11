@@ -6,6 +6,7 @@ import com.consultorio.registro.module.Persona;
 
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
@@ -15,14 +16,15 @@ import jakarta.ws.rs.core.MediaType;
 @Path("/ConsultaPersonaRest")
 @Stateless
 public class ConsultaPersonaRest {
-
+	
+	@PersistenceContext
 	EntityManager em;
 	
 	@GET
 	@Path("/consultarPersona")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Persona> findAll() {
-	    return em.createQuery("SELECT * FROM Persona p ORDER BY p.idPersona", Persona.class)
+	    return em.createQuery("SELECT idPersona FROM Persona p ORDER BY p.idPersona", Persona.class)
 	            .getResultList();
 	}
 	
